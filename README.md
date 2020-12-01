@@ -39,5 +39,5 @@ Is possibile run also unittest with the command
 
 # LICENSE
 
-See the <a href="https://github.com/ophusdev/advent-of-code_2020/LICENSE">LICENSE</a> file in the same directory.
+See the <a href="https://github.com/ophusdev/advent-of-code_2020/blob/main/LICENSE">LICENSE</a> file in the same directory.
 
