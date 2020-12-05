@@ -26,14 +26,14 @@ Each puzzle is stored into folder with day name (eg: 1, 2, ... 24, 25).
 
 To run designated puzzle, type the command:
 
-    -   python3 1/day_1.py
-    -   python3 2/day_2.py
+    -   python 1/day_1.py
+    -   python 2/day_2.py
     -   ...
 
 Is possibile run also unittest with the command
 
-    -   python3 1/test_day_1.py
-    -   python3 2/test_day_2.py
+    -   python 1/test_day_1.py
+    -   python 2/test_day_2.py
     -   ....
 
 
