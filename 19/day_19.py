@@ -21,10 +21,17 @@ class DayNineteen():
 
     def read_list(self):
         with open('./_data/data_19.txt') as f:
+<<<<<<< HEAD
             contents = f.read().split(os.linesep)
             self.lines = contents
     
     def evaluate_rules(self, rules, index):
+=======
+            contents = f.read().split('\n')
+            self.lines = contents
+
+    def calc_rules(self, rules, index):
+>>>>>>> 1e1cf6288a01db1fe9150c69bbf3aed35f5a7ea9
         rule = rules[index]
         if rule[0] == 0:
             return [rule[1]]
@@ -32,13 +39,20 @@ class DayNineteen():
             result = []
             for group in rule[1]:
                 indices = [int(x) for x in group.split()]
+<<<<<<< HEAD
                 res = self.evaluate_rules(rules, indices[0])
                 for i in indices[1:]:
                     parts = self.evaluate_rules(rules, i)
+=======
+                res = self.calc_rules(rules, indices[0])
+                for i in indices[1:]:
+                    parts = self.calc_rules(rules, i)
+>>>>>>> 1e1cf6288a01db1fe9150c69bbf3aed35f5a7ea9
                     res  = [r + p for r in res for p in parts]
                 result = result + res    
             return result
         return None
+<<<<<<< HEAD
 
     @profiler
     def part_one(self):
@@ -70,4 +84,53 @@ print("How many messages completely match rule 0??")
 print(day_nineteen.part_one())
 print("=========================================")
 print("")
+=======
+    
+    def start_one(self, rules, message):
+        result = self.calc_rules(rules, 0)
+        return sum([1 for m in message if m in result])
+
+    @profiler
+    def part_one(self):
+        rules  = {}
+
+        for index, line in enumerate(self.lines):
+            if len(line.strip()) == 0: 
+                break
+            rule = line.split(':')  
+            if len(rule[1]) == 4:
+                rules[int(rule[0])] = [0, rule[1][2]]
+            else:
+                rules[int(rule[0])] = [1, rule[1].split('|')]
+        
+        message = self.lines[index+1:]
+
+        return self.start_one(rules, message)
+
+
+    def part_two(self):
+        rules  = {}
+
+        for index, line in enumerate(self.lines):
+            if len(line.strip()) == 0: 
+                break
+            rule = line.split(':')  
+            if len(rule[1]) == 4:
+                rules[int(rule[0])] = [0, rule[1][2]]
+            else:
+                rules[int(rule[0])] = [1, rule[1].split('|')]
+        
+        message = self.lines[index+1:]
+
+        rules[8] = [1, ['42', '42 8']]
+        rules[11] = [1, ['42 31', '42 11 31']]
+        return None
+
+
+day_nineteen = DayNineteen()
+print("How many messages completely match rule 0?")
+print(day_nineteen.part_one())
+print("=========================================")
+print("After updating rules 8 and 11, how many messages completely match rule 0?")
+>>>>>>> 1e1cf6288a01db1fe9150c69bbf3aed35f5a7ea9
 print(day_nineteen.part_two())
